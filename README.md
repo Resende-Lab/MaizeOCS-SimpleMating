@@ -1,5 +1,5 @@
 # MaizeOCS-SimpleMating
-Scripts from the paper describing SimpleMating package.
+Scripts from the paper describing SimpleMating package (https://github.com/Resende-Lab/SimpleMating).
 
 ### Simulations
 The main script is the RUNME.R. It is suppose to call all other scripts. Please, make sure that all scripts are in the same folder than the main one (RUNME.R) or give the path to them on the main file.
