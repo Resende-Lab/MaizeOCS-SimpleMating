@@ -18,7 +18,7 @@ MaleParents = setEBV(MaleParents, gsmodel)
 relMat = Gmatrix(Markers)
 
 #------------------------------------------------------------------------------
-####----------- 3. Mean Parental average
+####----------- 3. Mid parental value
 #------------------------------------------------------------------------------
 # 3.1 Plan
 CrossPlan = planCross(TargetPop=MaleParents@id,
@@ -27,8 +27,8 @@ CrossPlan = planCross(TargetPop=MaleParents@id,
 Crit = data.frame(Id = MaleParents@id,
                   Crit = MaleParents@ebv)
 
-# 3.2 Single trait mean parental average
-ST_mpa = getMPA(MatePlan = CrossPlan,
+# 3.2 Single trait mid-parental value
+ST_mpa = getMPV(MatePlan = CrossPlan,
                 Criterion = Crit,
                 K=relMat)
 
@@ -67,7 +67,7 @@ FemaleParents = setEBV(FemaleParents, gsmodelF)
 relMatF = Gmatrix(MarkersF)
 
 #------------------------------------------------------------------------------
-####----------- 3. Mean Parental average
+####----------- 3. Mid parental value
 #------------------------------------------------------------------------------
 # 3.1 Plan
 CrossPlanF = planCross(TargetPop=FemaleParents@id,
@@ -76,8 +76,8 @@ CrossPlanF = planCross(TargetPop=FemaleParents@id,
 CritF = data.frame(Id = FemaleParents@id,
                   Crit = FemaleParents@ebv)
 
-# 3.2 Single trait mean parental average
-FE_mpa = getMPA(MatePlan = CrossPlanF,
+# 3.2 Single trait Mid parental value
+FE_mpa = getMPV(MatePlan = CrossPlanF,
                 Criterion = CritF,
                 K=relMatF)
 
