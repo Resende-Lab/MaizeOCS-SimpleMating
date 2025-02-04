@@ -21,7 +21,7 @@ relMat = Gmatrix(Markers)
 ####----------- 3. Mean Parental average
 #------------------------------------------------------------------------------
 # 3.1 Plan
-CrossPlan = planCross(TargetPop=MaleParents@id[1:100],
+CrossPlan = planCross(TargetPop=MaleParents@id,
                      MateDesign = 'half')
 
 Crit = data.frame(Id = MaleParents@id,
