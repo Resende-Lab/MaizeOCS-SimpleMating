@@ -30,16 +30,16 @@ rawData = list()
 
 # Loop
 for(i in 1:length(files)){
-
-      temp = data.frame(Year=1:35, readRDS(files[i]),
-                        stringsAsFactors=FALSE)
-
-      names(temp) <- c("Year","rep", "Scenario",
-                       'MeanG_pop',
-                       'VarG_pop',
-                       'GenicVG_pop')
-
-      rawData[[i]] = temp
+  
+  temp = data.frame(Year=1:35, readRDS(files[i]),
+                    stringsAsFactors=FALSE)
+  
+  names(temp) <- c("Year","rep", "Scenario",
+                   'MeanG_pop',
+                   'VarG_pop',
+                   'GenicVG_pop')
+  
+  rawData[[i]] = temp
 }
 
 rawData = rbindlist(rawData) #collapse all Scenarios into one data frame
@@ -63,8 +63,8 @@ dfMean$MeanG_pop = dfMean$MeanG_pop - dfMean$MeanG_pop[dfMean$Year == 0]
 
 #------------------ mean
 PopMean = ddply(dfMean,c("Year","Scenario"), summarize,
-                 mean = mean(MeanG_pop),
-                 se = sd(MeanG_pop)/sqrt(20))
+                mean = mean(MeanG_pop),
+                se = sd(MeanG_pop)/sqrt(20))
 
 # Adding a nice title
 PopMean$name = 'Genetic performance' 
@@ -155,8 +155,8 @@ stdVar = ggplot(PopMeanstd,aes(x=Year,y=MeanG2,color=Scenario))+
 
 #------------------ variance
 PopGenVar = ddply(dfFinal,c("Year","Scenario"), summarize,
-             mean = mean(GenicVG_pop),
-             se = sd(GenicVG_pop)/sqrt(20))
+                  mean = mean(GenicVG_pop),
+                  se = sd(GenicVG_pop)/sqrt(20))
 
 # Adding a nice title
 PopGenVar$Measure = 'Genic variance'
@@ -206,13 +206,3 @@ ggpubr::ggarrange(Mean,stdVar, GenVar,  # list of plots
                   nrow = 1,
                   ncol = 3)  # number of rows
 dev.off()
-
-
-
-
-
-
-
-
-
-
